@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,4 +49,12 @@ public class TestApi {
 	 {
 		 return urepo.findAll();
 	 }
+	 
+	 @GetMapping("/test3")
+	 @Secured("admin")
+		public String test3()
+		{
+			
+			return "success";
+		}
 }
